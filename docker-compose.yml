@@ -1,0 +1,34 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+    container_name: expense_backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://expense_user:expense_password@db:5432/expense_db
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:16
+    container_name: expense_database
+    environment:
+      POSTGRES_USER: expense_user
+      POSTGRES_PASSWORD: expense_password
+      POSTGRES_DB: expense_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U expense_user -d expense_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+
+volumes:
+  postgres_data:
