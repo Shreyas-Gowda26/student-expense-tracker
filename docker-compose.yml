@@ -1,4 +1,12 @@
 services:
+  frontend:
+    build:
+      context: ./frontend
+    container_name: expense_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
 
   backend:
     build:
@@ -7,7 +15,8 @@ services:
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: postgresql://expense_user:expense_password@db:5432/expense_db
+      DATABASE_URL: ${DATABASE_URL}
+      SECRET_KEY: ${SECRET_KEY}
     depends_on:
       db:
         condition: service_healthy
@@ -28,7 +37,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-
 
 volumes:
   postgres_data:
