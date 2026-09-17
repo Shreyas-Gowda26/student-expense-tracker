@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==================== -->
+    <!-- AUTH CONTAINER -->
+    <!-- ==================== -->
+
+    <div id="auth-container">
+
+        <h1>Student Expense Tracker</h1>
+
+        <!-- Login -->
+
+        <div id="login-section">
+
+            <h2>Login</h2>
+
+            <form onsubmit="event.preventDefault(); login();">
+
+                <input
+                    type="email"
+                    id="login-email"
+                    placeholder="Email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="login-password"
+                    placeholder="Password"
+                    required
+                >
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <p>
+                Don't have an account?
+                <button onclick="showRegister()">
+                    Register
+                </button>
+            </p>
+
+        </div>
+
+
+        <!-- Register -->
+
+        <div id="register-section" style="display: none;">
+
+            <h2>Register</h2>
+
+            <form onsubmit="event.preventDefault(); register();">
+
+                <input
+                    type="text"
+                    id="register-name"
+                    placeholder="Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="register-email"
+                    placeholder="Email"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="register-password"
+                    placeholder="Password"
+                    required
+                >
+
+                <button type="submit">
+                    Register
+                </button>
+
+            </form>
+
+            <p>
+                Already have an account?
+                <button onclick="showLogin()">
+                    Login
+                </button>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================== -->
+    <!-- DASHBOARD -->
+    <!-- ==================== -->
+
+    <div id="dashboard" style="display: none;">
+
+        <header>
+
+            <h1>Expense Dashboard</h1>
+
+            <button onclick="logout()">
+                Logout
+            </button>
+
+        </header>
+
+
+        <!-- ==================== -->
+        <!-- SUMMARY -->
+        <!-- ==================== -->
+
+        <section class="summary-container">
+
+            <div class="summary-card">
+
+                <h3>Total Spent</h3>
+
+                <p id="total-amount">
+                    ₹0.00
+                </p>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <h3>Total Expenses</h3>
+
+                <p id="total-expenses">
+                    0
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== -->
+        <!-- ADD / EDIT EXPENSE -->
+        <!-- ==================== -->
+
+        <section>
+
+            <h2 id="expense-form-title">
+                Add Expense
+            </h2>
+
+            <form
+                id="expense-form"
+                onsubmit="event.preventDefault(); handleExpenseSubmit();"
+            >
+
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Amount"
+                    step="0.01"
+                    min="0"
+                    required
+                >
+
+
+                <select id="category" required>
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+                    <option value="Food">
+                        Food
+                    </option>
+
+                    <option value="Travel">
+                        Travel
+                    </option>
+
+                    <option value="Education">
+                        Education
+                    </option>
+
+                    <option value="Shopping">
+                        Shopping
+                    </option>
+
+                    <option value="Entertainment">
+                        Entertainment
+                    </option>
+
+                    <option value="Bills">
+                        Bills
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="text"
+                    id="description"
+                    placeholder="Description"
+                >
+
+
+                <input
+                    type="date"
+                    id="expense-date"
+                    required
+                >
+
+
+                <button
+                    type="submit"
+                    id="expense-submit"
+                >
+                    Add Expense
+                </button>
+
+
+                <button
+                    type="button"
+                    id="cancel-edit"
+                    onclick="cancelEdit()"
+                    style="display: none;"
+                >
+                    Cancel
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- ==================== -->
+        <!-- EXPENSE LIST -->
+        <!-- ==================== -->
+
+        <section>
+
+            <h2>Your Expenses</h2>
+
+            <div id="expense-list">
+
+                <p>
+                    Loading expenses...
+                </p>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

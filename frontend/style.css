@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 40px;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+
+input,
+select,
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+.tabs button {
+    flex: 1;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.dashboard-header button {
+    width: auto;
+    padding: 10px 20px;
+}
+
+
+.summary-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+
+.summary-card h2 {
+    margin-top: 10px;
+}
+
+
+.expense-card {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+
+.expense-card strong {
+    font-size: 18px;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.expense-item button {
+    margin-left: 5px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.summary-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.summary-card {
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    min-width: 180px;
+}
+
+.summary-card h3 {
+    margin: 0 0 10px;
+}
+
+.summary-card p {
+    font-size: 24px;
+    font-weight: bold;
+}
